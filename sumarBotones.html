@@ -1,0 +1,63 @@
+<html>
+
+    <head> 
+        
+        <meta charset="UTF-8"> 
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        <title>Eventos JS</title> 
+        
+        </head> 
+
+        <body>
+            
+            <h1>Eventos delegados</h1>
+            <h1 style="color:blue" id="resultado"> </h1>
+
+            <button type="button">4</button>
+            <button type="button">6</button>
+            <button type="button">7</button>
+
+
+            <script>
+                window.onload = function(){
+                    var  suma = 0;
+
+                    //Buscamos todos los objetos de tipo button
+                    var botones = document.getElementsByTagName("button");
+
+                    //Recorremos todos los botones con un bucle
+                    for (let i = 0; i < botones.length; i++) {
+                        //Recuperamos cada boton individual
+                        var boton = botones[i];
+                        //Asociamos al boton el evento
+                        boton.addEventListener("click" , function(){
+                            boton.style.backgroundColor = "red";
+                            var numero = parseInt(this.innerText);
+                            suma+=numero;
+                            document.getElementById("resultado").innerText = " La suma es: " + suma;
+                        });
+
+                        //Otra manera de hacerlo
+                        // for(var indice in botones){
+                        //     console.log("Indice " + indice);
+                        // }
+                        // for (var boton of botones){
+                        //     console.log("Boton " + boton.innerText);
+                        // }
+                        
+                    }
+
+                }
+            </script>
+            
+
+
+        </body>
+
+
+
+</html>

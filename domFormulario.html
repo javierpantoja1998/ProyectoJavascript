@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM FORMULARIO</h1>
+    <input type="radio" name="colores" value="Red"/>Rojo<br/>
+    <input type="radio" name="colores" value="Yellow"/>Amarillo<br/>
+    <input type="radio" name="colores" value="Orange"/>Naranja<br/>
+    <button type="button" onclick="mostrarColor()">
+        Colorear
+    </button>
+
+    <h1 id="resultadoColor">Soy un TITULO</h1> 
+    <hr>
+
+
+    <label>Deporte favorito:</label>
+    <select id="deportes">
+
+        <option value="petanca">Petanca</option>
+        <option value="curling">Curling</option>
+        <option value="Tenis">Tenis</option>
+        <option value="futbol">Futbol</option>
+    </select>
+    <button type="button" onclick="mostrarDeporte()">Mostrar deporte Seleccionado</button>
+    <h1 style="color:blue" id="resultadoDeporte"> </h1>
+
+    <script>
+        function mostrarColor() {
+            //Si ponemos todos los name iguales en controles del form podemos buscarlos
+            //mediante el metodo de getElemntsbyName
+            //Si estamos dentro de un form usaremos document.forms[0].NAME
+
+            var colores = document.getElementsByName("colores");
+
+            for(var radio of colores){
+                //Si son radio/checkbox se utiliza checked
+                if(radio.checked == true){
+                    var color = radio.value;
+                    document.getElementById("resultadoColor").innerText = color;
+                    document.getElementById("resultadoColor").style.backgroundColor=color;
+
+                }
+            }
+        }
+
+        function mostrarDeporte() {
+            var select = document.getElementById("deportes");
+            //Dentro de un select tenemos un array en dom que es Options
+            for (var opcion of select.options){
+                //Los option tienen atributos llamado selected para averiguar si estan seleccionados o no
+                if(opcion.selected == true){
+                    var deporte = document.getElementById("resultadoDeportes").innerText = deporte;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

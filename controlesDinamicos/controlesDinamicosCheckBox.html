@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="range" id="rango" min="1" max="5" value="1" onchange="crearCB()"/>
+    <p id="valorRango">1</p>
+    <div id="capa"></div>
+    <h1 id="res"></h1>
+
+    <script>
+
+        function crearCB() {
+            //Recogemos y definimos las variables
+            var capa = document.getElementById("capa");
+            var rango = document.getElementById("rango");
+
+            //Ponemos el valor del rango que tiene
+            document.getElementById("valorRango").innerText =rango.value;
+
+            //Creamos la variable con el checkbox
+            var checkbox = parseInt(rango.value);
+
+            //Limpiamos el parent para incluir nuevas checkbox
+            capa.innerText="";
+
+            //Bucle
+            for (let i = 0; i < checkbox; i++) {
+                //Creamos un objeto checkbox por cada interaccion
+                var cb = document.createElement("input");
+                var numero = document.createElement("label");
+                var aleatorio  = Math.floor(Math.random()*10);
+                numero.innerText=aleatorio;
+
+                cb.type="checkbox";
+                cb.value=aleatorio;
+                capa.appendChild(cb);
+                capa.appendChild(numero);
+
+                var sumatorio = 0;
+
+                cb.addEventListener("click", function(){
+                   if(this.checked){
+                        sumatorio+=parseInt(this.value);
+                        
+                   }else{
+                    sumatorio-=parseInt(this.value);
+                   }
+                    document.getElementById("res").innerText = sumatorio;
+                });
+                
+            }
+        }
+
+    </script>
+
+</body>
+</html>

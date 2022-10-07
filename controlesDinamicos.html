@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controles dinámicos</title>
+    <style>
+        img
+    </style>
+</head>
+
+<body>
+
+    <h1>Generar controles dinámicos</h1>
+    <input type="range" id="rango" min="1" max="14" value="1" onchange="crearImagenes()"/>
+    <p id="valorRango">1</p>
+    <div id="capa"></div>
+
+    <script>
+        function crearImagenes() {
+            //Recogemos y definimos las variables
+            var capa = document.getElementById("capa");
+            var rango = document.getElementById("rango");
+            //Ponemos el valor del rango que tiene
+            document.getElementById("valorRango").innerText =rango.value;
+            //Creamos la variable con el numero de imagenes
+            var numeroImagenes = parseInt(rango.value);
+
+            //BUCLE PARA DIBUJAR X IMAGENES
+            for (let i = 0; i < numeroImagenes.length; i++) {
+                //Creamos un objeto imagen por cada interaccion
+                var imagen = document.createElement("img");
+                //Asignamos las propiedades deseadas
+                imagen.src="images/batman.jpg";
+                //Agregamos al parent el objeto
+                capa.appendChild(imagen);
+                //Creamos el evento para la imagen
+                capa.addEventListener("click", function(){
+                    //Accedemos al objeto a su atributo src y lo modificamos
+                    this.src = "images/c.jpg";
+                })
+            }
+
+
+        }
+
+
+    </script>
+
+</body>
+</html>

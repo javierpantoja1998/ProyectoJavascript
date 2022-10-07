@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+<meta charset="UTF-8"> 
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<title>Document</title> 
+
+</head> 
+
+<body> 
+    <h1>Descubre el día de la semana de tu cumpleaños</h1>
+
+    <label>Dia: </label> 
+
+    <input type="text" id="caja1"/><br/> 
+
+    <label>Mes: </label> 
+
+    <input type="text" id="caja2"/><br/> 
+
+    <label>Año: </label> 
+
+    <input type="text" id="caja3"/><br/> 
+
+    <button type="button" onclick="diaSemana()"> 
+
+        Calcular día de la semana
+    
+    </button> 
+    <h1 id="diaFinal"></h1>
+</body>
+
+<script>
+    function diaSemana() {
+
+    //Sacamos los valores y definimos las variables
+        var dia = document.getElementById("caja1");
+        var mes = document.getElementById("caja2");
+        var año = document.getElementById("caja3");
+
+        //Los convertimos en int
+        var dia1 = Math.trunc(caja1.value); 
+        var mes1 = Math.trunc(caja2.value); 
+        var año1 = Math.trunc(caja3.value); 
+
+        // 1. Multiplicamos el Mes más 1 por 3 y lo dividimos entre 5
+         var operacion1 = Math.trunc(((mes1 + 1) * 3 ) / 5);
+         
+
+        // 2. Dividimos el año entre 4
+        var operacion2 =Math.trunc (año1 / 4);
+        
+        // 3. Dividimos el año entre 100
+        var operacion3 = Math.trunc(año1 / 100);
+
+        // 4. Dividimos el año entre 400
+        var operacion4 = Math.trunc(año1 / 400);
+
+        // 5. Sumamos el dia, el doble del mes, el año, el resultado de la operacion 1, el de la 2 y menos el resultado de la operacion 3 más la operacion 4 mas 2.
+
+        
+        var operacionFinal= Math.trunc(dia1 + (mes1*2) +  año1 + operacion1+operacion2-operacion3 + operacion4+2);
+
+        // 6- dividir el resultado entre 7
+        var resultadoDivision = parseInt(operacionFinal / 7);
+
+        //Restar el numero del paso 5 con el numero del paso 7
+        var resultadoResta =parseInt( operacionFinal - (resultadoDivision * 7));
+
+        //Creamos el array con los dias de la semana
+        const semana = ["sabado", "domingo", "lunes", "martes", "miercoles", "jueves", "viernes"];
+
+         //Cogemos los valores del array
+        document.getElementById("diaFinal").innerText="Dia: " + semana[resultadoResta] ;
+
+        //Sacamos el dia de la semana por pantalla
+        console.log(semana[resultadoResta]);
+
+    }
+</script>
+</html>

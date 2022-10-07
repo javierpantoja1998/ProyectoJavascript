@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Primer Js</title>
+    </head>
+    <body>
+
+        <label>Numero 1</label>
+        <input type="text" id="caja1"/> <br>
+
+        <label>Numero 2</label>
+        <input type="text" id="caja2"/> <br>
+
+
+        <h1>Tabla de multiplicar</h1>
+        <label>Introduzca un número</label>
+        <input type="text" id="cajaNumero"/>
+        <button type="button" onclick="mostrarTabla()"> 
+            Mostrar Tabla
+        </button>
+        <table border="1" id="tabla">
+
+        </table>
+
+
+        <button onclick="sumarNumeros()"> 
+            Sumar
+        </button>
+
+        <h1 style="color:blue" id="resultado"></h1>
+
+        <button onclick="mostrarSaludo()"> 
+            Saludar
+        </button>
+    </body>
+
+    <script>
+
+        function mostrarTabla(){
+            //Definimos las var
+            var caja = document.getElementById("cajaNumero");
+            var numero = parseInt(caja.value);
+            var html = "";
+            //Realizamos un bucle de 1 a 10 para mostrar la tabla
+            for(var i = 1; i <= 10; i++){
+                var resultado = numero * i;
+                var operacion = numero + " * " + i;
+                html += "<tr>"
+                html += "<td>" + operacion + "</td>";
+                html += "<td>" + resultado + "</td>";
+                html += "</tr>"
+            }
+            document.getElementById("tabla").innerHTML = html;
+        }
+
+        function sumarNumeros(){
+            var caja1= document.getElementById("caja1");
+            var caja2= document.getElementById("caja2");
+
+            //Debemos realizar la conversion
+            //Usamos ParseInt(valor) o ParseFloat(valor)
+            var numero1= parseInt(caja1.value);
+            var numero2= parseInt(caja2.value);
+
+            var suma = numero1 + numero2;
+            resultado.innerText = "La suma es: " + suma;
+
+            //Si el numero es positivo, lo ponemos en verde y si es negativo en rojo
+
+            if (suma > 0){
+                //Positivo
+                resultado.style.backgroundColor="green";
+            }else if(suma<0){
+                //Negativo
+                resultado.style.backgroundColor="red";
+            }else{
+                //Negativo
+                resultado.style.backgroundColor="yellow";
+            }
+        }
+
+        function mostrarSaludo() {
+
+            //COMENTARIOS
+
+            alert("Mensaje de alerta");
+            console.log("Consola de desarrollo preferiblemente");
+            }
+    </script>
+</html>

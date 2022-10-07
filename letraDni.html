@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+<meta charset="UTF-8"> 
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<title>definimos</title> 
+
+</head> 
+
+<body> 
+
+</body>
+    <h1>Número de DNI</h1>
+
+    
+    <label>Introduce tu dni: </label>
+    <input type="text" id="caja1"/><br/> 
+    <button onclick="letraDni()">
+        Conocer letra:
+    </button>
+    <h1 style="color:red" id="resultado"> </h1>
+
+<script>
+    function letraDni(){
+        var letrasDni = "TRWAGMYFPDXBNJZSQVHLCKET";
+        var dni = document.getElementById(caja1);
+        var dni1 = parseInt(dni.value);
+        if(dni1 = " "){
+            caja1.style.backgroundColor=red;
+        }else{
+            caja1.style.backgroundColor=white;
+        }
+
+        var letraDni = (dni1 - (Math.trunc(dni1 / 23)* 23));
+        var valorLetraDni = letrasDni.charAt(letraDni);
+        document.getElementById("resultado").innerText = "Letra: " + valorLetraDni;
+    }
+</script>
+
+</html>

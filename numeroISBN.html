@@ -1,0 +1,66 @@
+<html>
+    <html lang="en"> 
+
+        <head> 
+        
+        <meta charset="UTF-8"> 
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        <title>definimos</title> 
+        
+        </head> 
+
+        <body>
+            
+            
+    <label>Introduce tu ISBN: </label>
+    <input type="text" id="caja1"/><br/> 
+    <button onclick="calcularIsbn()">
+        Calcular:
+    </button>
+    <h1 style="color:red" id="resultado"> </h1>
+        </body>
+
+
+    <script>
+        
+        function calcularIsbn() {
+            
+            //Recogemos el número que ha introducido el usuario
+            var numeroIntroducido = document.getElementById("caja1");
+            var numeros = numeroIntroducido.value;
+
+            var suma = 0;
+
+            //Hacemos el bucle para separar el numero y multiplicarlo por su posición
+            for (let i = 0 ; i < numeros.length; i++) {
+                //Vamos sacando caracter a caracter
+                var caracter = (numeros.charAt(i));
+                //Convertimos estos caracteres en numeros enteros
+                var numeroIsbn = parseInt(caracter);
+                //Realizamos la operacion para validar el ISBN
+                var operacion = numeroIsbn * (i + 1);
+                //Sumamos todos los resultados
+                suma +=  operacion; 
+                
+            }
+
+            //Recogemos el resultado obtenido
+            var resultado = document.getElementById("resultado");
+            //Si el resultado de la dividir la suma entre 11 es igual a 0 pues es correcto , si no es incorrecto
+            if(suma % 11 == 0){
+                resultado.innerText = "ISBN CORRECTO";
+                resultado.backgroundColor = "green";
+            
+            }else{
+            resultado.innerText = "ISBN INCORRECTO";
+            resultado.backgroundColor = "red";
+            }
+        }
+    </script>
+
+
+</html>
