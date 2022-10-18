@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio prueba fer</title>
+</head>
+<body>
+    <select id="seleccion" onclick= "listado()" once:true>
+
+    </select>
+    <div id="resultado"></div>
+</body>
+
+<script>
+    window.onload = function() {
+
+        document.getElementById("seleccion").onclick = function() {
+
+            //Definimos el array
+            var html = "";
+            var seleccion = document.getElementById("seleccion");
+            var ciudades = ["Madrid", "Cuenca", "York", "San Diego", "Santander", "London", "Paris", "Munich", "Ibiza", "Utah"]; 
+                //Recorremos el array 
+                for (let i = 0; i < ciudades.length; i++) {
+                    
+                     //Creamos las opciones
+                     var opciones = document.createElement("option");
+                     opciones.innerText = ciudades[i];
+
+
+                     seleccion.appendChild(opciones); 
+                    
+                    if(opciones.selected == true){
+                        var h1 = document.createElement("h1");
+
+                        h1.innerText =ciudades[i];
+
+                        var resultado = document.getElementById("resultado");
+                        resultado.appendChild(h1);
+                        
+                    }
+                    
+                }
+
+            }
+            
+            
+        
+    }
+</script>
+    
+</html>
